@@ -9,7 +9,6 @@ const limiter = require('./constatns/express-rate-limit');
 
 const router = require('./routes');
 const errorHandler = require('./middlewares/error');
-const NotFoundError = require('./errors/not-found-error');
 
 const allowedCors = require('./constatns/allowedCors');
 
@@ -34,9 +33,7 @@ app.use(helmet());
 
 app.use(router);
 
-app.use((next) => {
-  next(new NotFoundError('Страница не найдена'));
-});
+
 app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`слушаю ${PORT} порт`);

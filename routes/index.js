@@ -3,6 +3,7 @@ const { errors } = require('celebrate');
 
 const usersRouter = require('./users');
 const moviesRouter = require('./movies');
+const NotFoundError = require('../errors/not-found-error');
 
 const auth = require('../middlewares/auth');
 
@@ -29,6 +30,9 @@ router.use(auth);
 router.use('/users', usersRouter);
 router.use('/movies', moviesRouter);
 
+router.use((next) => {
+  next(new NotFoundError('Страница не найдена'));
+});
 router.use(errorLogger);
 
 router.use(errors());
