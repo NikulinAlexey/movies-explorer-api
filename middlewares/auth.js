@@ -8,7 +8,7 @@ const auth = (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, process.env.NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
+    payload = jwt.verify(token, 'dev-secret');
   } catch (err) {
     return next(new UnauthorizedError('Ошибка авторизации в auth middleware'));
   }
