@@ -33,7 +33,7 @@ const validateCreateMovie = celebrate({
     director:
       Joi.string()
         .required(),
-    duraion:
+    duration:
       Joi.number()
         .required(),
     year: Joi.string()
