@@ -33,7 +33,6 @@ app.use(helmet());
 
 app.use(router);
 
-
 app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`слушаю ${PORT} порт`);

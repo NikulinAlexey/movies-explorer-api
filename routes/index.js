@@ -13,6 +13,7 @@ const {
 } = require('../middlewares/logger');
 const {
   login,
+  signOut,
   createUser,
 } = require('../controllers/auth');
 const {
@@ -26,6 +27,7 @@ router.use('/signin', validateLogin, login);
 router.use('/signup', validateСreateUser, createUser);
 
 router.use(auth);
+router.use('/signout', signOut);
 
 router.use('/users', usersRouter);
 router.use('/movies', moviesRouter);

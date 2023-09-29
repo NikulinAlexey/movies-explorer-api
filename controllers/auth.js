@@ -64,14 +64,15 @@ const signOut = (req, res, next) => {
       {
         expires: new Date(Date.now()),
         httpOnly: true,
+        sameSite: true,
       },
     );
-    res.status(200).send({ message: 'successful logout' });
+    res.send({ message: 'Успешный logOut' });
   } catch (err) {
-    return next(new Error('unsuccessful logout'));
+    return next(new Error('Ошибка при logOut'));
   }
 
-  next();
+  // next();
 };
 
 module.exports = {
