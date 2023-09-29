@@ -12,7 +12,7 @@ const errorHandler = require('./middlewares/error');
 
 const allowedCors = require('./constatns/allowedCors');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 const app = express();
 
 mongoose.connect('mongodb://0.0.0.0:27017/bitfilmsdb')
