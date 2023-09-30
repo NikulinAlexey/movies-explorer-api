@@ -51,7 +51,7 @@ const validateCreateMovie = celebrate({
         .required()
         .regex(/^https?:\/\/[www]?(.[\w,-]{1,}.?){1,}/)
         .message('Невалидная ссылка на изображение'),
-    movieId:
+    id:
       Joi.number()
         .required(),
     nameRU:

@@ -2,8 +2,6 @@ const jsonWebToken = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 
-const { JWT_SECRET } = process.env;
-
 const UnauthorizedError = require('../errors/unauthorized-error');
 
 const login = (req, res, next) => {
@@ -25,7 +23,7 @@ const login = (req, res, next) => {
             res.cookie('jwt', jwt, { maxAge: 3600000 * 24 * 7, httpOnly: true, sameSite: true });
             res.send(user);
           } else {
-            throw new UnauthorizedError('Неправильная почта или пароль');
+            return new UnauthorizedError('Неправильная почта или пароль');
           }
         });
     })

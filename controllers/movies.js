@@ -16,13 +16,13 @@ const getMyMovies = (req, res, next) => {
 
 const createMovie = (req, res, next) => {
   const {
+    id,
     year,
     image,
     nameEN,
     nameRU,
-    duration,
     country,
-    movieId,
+    duration,
     director,
     thumbnail,
     description,
@@ -31,14 +31,14 @@ const createMovie = (req, res, next) => {
 
   const owner = req.user._id;
   Movie.create({
+    id,
     year,
     owner,
     image,
     nameRU,
     nameEN,
-    duration,
     country,
-    movieId,
+    duration,
     director,
     thumbnail,
     description,
